@@ -2,7 +2,7 @@ package Lection_3;
 
 public class List {
     Node head;
-    //Node tail;
+    Node tail;
 
     //двусвязный список
 //    // O(n)
@@ -69,7 +69,7 @@ public class List {
     public class Node {
         int value;
         Node next;
-        //Node previous;
+        Node previous;
 
     }
 
@@ -85,12 +85,51 @@ public class List {
         currentNode.next = previousNode;
     }
 
-    public void revert(){
-        if(head != null && head.next != null){
+    public void revert() {
+        if (head != null && head.next != null) {
             Node temp = head;
-            revert(head.next,head);
+            revert(head.next, head);
             temp.next = null;
         }
+    }
+
+    //операции для односвзяного списка по типу стека (LIFO)
+    /*
+    public void push(int value) {
+        Node node = new Node();
+        node.value = value;
+        node.next = head;
+        head = node;
+    }
+
+    public Integer pop() {
+        Integer result = null;
+        if (head != null) {
+            result = head.value;
+            head = head.next;
+        }
+        return result;
+    }
+    */
+
+    //операции для двусвязного списка
+
+    public void push(int value) {
+        Node node = new Node();
+        node.value = value;
+        node.next = head;
+        node.previous = node;
+        head = node;
+    }
+// FIFO
+    public Integer peek(){
+        Integer result = null;
+        if (tail != null){
+            result = tail.value;
+            tail.previous.next = null;
+            tail = tail.previous;
+        }
+        return result;
     }
 
 }
