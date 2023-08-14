@@ -12,9 +12,9 @@ class sList {
     }
 
     void reverse() {
-        sList.Node prev = null;
-        sList.Node cur = head;
-        sList.Node temp;
+        Node prev = null;
+        Node cur = head;
+        Node temp;
 
         while (cur != null) {
             temp = cur.next;
