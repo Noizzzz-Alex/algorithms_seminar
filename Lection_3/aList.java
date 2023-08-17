@@ -1,6 +1,6 @@
 package Lection_3;
 
-public class List {
+public class aList {
     Node head;
     Node tail;
 
